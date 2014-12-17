@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141216223551) do
+ActiveRecord::Schema.define(version: 20141217192422) do
 
   create_table "rosters", force: true do |t|
     t.integer  "ranking"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20141216223551) do
     t.string   "position"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "teams", force: true do |t|

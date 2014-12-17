@@ -15,5 +15,8 @@
   <%= @roster.position %>
 </p>
 
+<% if @roster.user == current.user %>
 <%= link_to 'Edit', edit_roster_path(@roster) %> |
+<% end %>
+
 <%= link_to 'Back', rosters_path %>

@@ -1,5 +1,6 @@
 class RostersController < ApplicationController
   before_action :set_roster, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @rosters = Roster.all
@@ -10,14 +11,14 @@ class RostersController < ApplicationController
   end
 
   def new
-    @roster = Roster.new
+    @roster = current_user.rosters.build
   end
 
   def edit
   end
 
   def create
-    @roster = Roster.new(roster_params)
+    @roster = current_user.rosters.build(roster_params)
 
       if @roster.save
         format.html redirect_to @roster, notice: 'Roster was successfully created.'
@@ -44,6 +45,11 @@ class RostersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_roster
       @roster = Roster.find(params[:id])
+    end
+
+    def correct_user
+      @roster = current_user.rosters.find_by(id: params[:id])
+      redirect_to rosters_path, notice: "Not authorized to edit this pin" if @roster.nil?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -21,8 +21,11 @@
         <th>       </th>
         <td><%= roster.position %></td>
         <td><%= link_to 'Show', roster %></td>
-        <td><%= link_to 'Edit', edit_roster_path(roster) %></td>
-        <td><%= link_to 'Destroy', roster, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if roster.user == current_user %>
+          <td><%= link_to 'Edit', edit_roster_path(roster) %></td>
+          <td><%= link_to 'Destroy', roster, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +33,6 @@
 
 <br>
 
+<% if user_signed_in? %>
 <%= link_to 'New Roster', new_roster_path %>
+<% end %>
