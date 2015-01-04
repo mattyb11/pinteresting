@@ -19,7 +19,6 @@ class RostersController < ApplicationController
 
   def create
     @roster = current_user.rosters.build(roster_params)
-
       if @roster.save
         format.html redirect_to @roster, notice: 'Roster was successfully created.'
       else

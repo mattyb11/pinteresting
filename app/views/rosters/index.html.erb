@@ -1,38 +1,62 @@
 <h1>Roster</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Ranking</th>
-      <th>       </th>
-      <th>Name</th>
-      <th>       </th>
-      <th>Position</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @rosters.each do |roster| %>
-      <tr>
-        <td><%= roster.ranking %></td>
-        <th>       </th>
-        <td><%= roster.name %></td>
-        <th>       </th>
-        <td><%= roster.position %></td>
-        <td><%= link_to 'Show', roster %></td>
-        <% if roster.user == current_user %>
-          <td><%= link_to 'Edit', edit_roster_path(roster) %></td>
-          <td><%= link_to 'Destroy', roster, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
 <% if user_signed_in? %>
 <%= link_to 'New Roster', new_roster_path %>
 <% end %>
+
+<div class="row">
+  <div class="col-md-5">
+    <table id="roster" class="table">
+      <thead>
+        <tr>
+          <th>Player</th>
+          <th>Position</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+      <% @rosters.each do |roster| %>
+        <td><%= roster.position %></td>
+        <td><%= roster.name %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+
+
+ <div class="row">
+        <div class="col-md-6">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
