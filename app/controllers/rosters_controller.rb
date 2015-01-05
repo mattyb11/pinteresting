@@ -3,7 +3,7 @@ class RostersController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @rosters = Roster.all
+    @rosters = Roster.all.order("ranking")
   end
 
 

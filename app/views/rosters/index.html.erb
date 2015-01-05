@@ -1,34 +1,32 @@
-<h1>Roster</h1>
-
 <button type="button" class="btn btn-default">
 <% if user_signed_in? %>
-<%= link_to 'Add a new player', new_roster_path %>
+<%= link_to 'Add a New Player', new_roster_path %>
 <% end %>
 </button>
 
 <div class="row">
   <div class="col-md-6">
-    <table id="roster" class="table">
-      <thead>
-        <tr>
-          <th>Player</th>
-          <th>Position</th>
-          <th>Overall Ranking</th>
-          <th>Positional Ranking</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-      <% @rosters.each do |roster| %>
-        <td><%= roster.position %></td>
-        <td><%= roster.name %></td>
-        <td><%= roster.ranking %></td>
-        <td><%= link_to 'Show', roster %></td>
-        <td><%= link_to 'Edit', edit_roster_path(roster) %></td>
-        <td><%= link_to 'Destroy', roster, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Player</th>
+            <th>Position</th>
+            <th>Ranking</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+        <% @rosters.each do |roster| %>
+          <td><%= roster.position %></td>
+          <td><%= roster.name %></td>
+          <td><%= roster.ranking %></td>
+          <td><%= link_to 'Show', roster %></td>
+          <td><%= link_to 'Edit', edit_roster_path(roster) %></td>
+          <td><%= link_to 'Destroy', roster, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+        
+      </tbody>
+    </table>
   </div>
 </div>
