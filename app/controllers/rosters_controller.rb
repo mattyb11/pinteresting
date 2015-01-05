@@ -11,24 +11,24 @@ class RostersController < ApplicationController
   end
 
   def new
-    @roster = current_user.rosters.build
+    @roster = Roster.new
   end
 
   def edit
   end
 
   def create
-    @roster = current_user.rosters.build(roster_params)
+    @roster = Roster.new(roster_params)
       if @roster.save
-        format.html redirect_to @roster, notice: 'Roster was successfully created.'
+       redirect_to @roster
       else
-        format.html render :new
-      end
+       render action: 'new'
+     end
   end
 
   def update
       if @roster.update(roster_params)
-        format.html redirect_to @roster, notice: 'Roster was successfully updated.'
+        redirect_to @roster, notice: 'Roster was successfully updated.'
       else
         format.html render :edit
       end
@@ -36,8 +36,7 @@ class RostersController < ApplicationController
 
   def destroy
     @roster.destroy
-      format.html redirect_to rosters_url, notice: 'Roster was successfully destroyed.'
-    end
+      redirect_to @roster, notice: 'Roster was successfully destroyed.'
   end
 
   private
@@ -50,6 +49,7 @@ class RostersController < ApplicationController
       @roster = current_user.rosters.find_by(id: params[:id])
       redirect_to rosters_path, notice: "Not authorized to edit this pin" if @roster.nil?
     end
+  end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def roster_params
