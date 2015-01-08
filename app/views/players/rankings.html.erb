@@ -1,0 +1,33 @@
+<center><h1>Dynasty Rankings</h1></center>
+
+<center>
+<button type="button" class="btn btn-default"><%= link_to 'Roster', players_path %></button>
+<button type="button" class="btn btn-default"><%= link_to 'Dynasty Rankings', rankings_players_path %></button>
+<button type="button" class="btn btn-default"><%= link_to 'Depth Chart', depthchart_players_path %></button>
+</center>
+
+<div class="row">
+ <div class="row col-md-5">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Overall Ranking</th>
+          <th>Player</th>
+          <th>Position</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @players.each do |player| %>
+          <tr>
+            <td><%= player.overall_ranking %></td>
+            <td><%= link_to player.player, edit_player_path(player) %></td>
+            <td><%= player.position %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+</div>
+</div>
+
+<center><button type="button" class="btn btn-default"><%= link_to 'Add a New Player', new_player_path %></button></center>
+<br>

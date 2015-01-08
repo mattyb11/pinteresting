@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  ranking: 1
-  name: MyString
+  player: MyString
   position: MyString
+  overall_ranking: 1
+  positional_ranking: 1
 
 two:
-  ranking: 1
-  name: MyString
+  player: MyString
   position: MyString
+  overall_ranking: 1
+  positional_ranking: 1

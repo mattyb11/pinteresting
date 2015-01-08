@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :rosters
+  resources :players do
+    collection do
+      get :rankings
+      get :depthchart
+    end
+  end
 
   devise_for :users, controllers: { registrations: 'registrations'}
   root "pages#home"

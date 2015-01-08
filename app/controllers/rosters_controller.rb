@@ -6,7 +6,6 @@ class RostersController < ApplicationController
     @rosters = Roster.all.order("ranking")
   end
 
-
   def show
   end
 

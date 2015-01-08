@@ -1,0 +1,7 @@
+<h1>Editing player</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @player %> |
+<%= link_to 'Back', players_path %> |
+<%= link_to 'Delete', players_path, method: :delete, data: { confirm: 'Are you sure?' } %>
