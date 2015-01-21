@@ -7,7 +7,7 @@
 </center>
 
 <div class="row">
- <div class="row col-md-5">
+ <div class="row col-md-4">
     <table class="table">
       <thead>
         <tr>
@@ -16,114 +16,93 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>QB</td>
-            <% @players.each do |player| %>     
-              <% if player.position == "QB" && player.positional_ranking == 1 %>   
-                <td><%= link_to player.player, edit_player_path(player) %></td>
-          </tr>
-          <% end %>
-        <% end %>
         
         <tr>
-            <td>RB</td>
-            <% @players.each do |player| %>  
-            <% if player.position == "RB" && player.positional_ranking == 1 %>   
-                <td><%= link_to player.player, edit_player_path(player) %></td>
+          <td>QB</td>
+            <% @qb.each do |player| %>      
+                <td><%=link_to player.player %></td>
           </tr>
-          <% end %>
         <% end %>
 
         <tr>
-            <td>RB</td>
-            <% @players.each do |player| %>  
-            <% if player.position == "RB" && player.positional_ranking == 2 %>   
-                <td><%= link_to player.player, edit_player_path(player) %></td>
+          <td>RB</td>
+            <% @rb1.each do |player| %>      
+                <td><%=link_to player.player %></td>
           </tr>
-          <% end %>
         <% end %>
 
         <tr>
-            <td>WR</td>
-            <% @players.each do |player| %>  
-            <% if player.position == "WR" && player.positional_ranking == 1 %>   
-                <td><%= link_to player.player, edit_player_path(player) %></td>
+          <td>RB</td>
+            <% @rb2.each do |player| %>      
+                <td><%=link_to player.player %></td>
           </tr>
-          <% end %>
         <% end %>
 
         <tr>
-            <td>WR</td>
-            <% @players.each do |player| %>  
-            <% if player.position == "WR" && player.positional_ranking == 2 %>   
-                <td><%= link_to player.player, edit_player_path(player) %></td>
+          <td>WR</td>
+            <% @wr1.each do |player| %>      
+                <td><%=link_to player.player %></td>
           </tr>
-          <% end %>
         <% end %>
 
         <tr>
-            <td>TE</td>
-            <% @players.each do |player| %>  
-            <% if player.position == "TE" && player.positional_ranking == 1 %>   
-                <td><%= link_to player.player, edit_player_path(player) %></td>
+          <td>WR</td>
+            <% @wr2.each do |player| %>      
+                <td><%=link_to player.player %></td>
           </tr>
-          <% end %>
         <% end %>
 
         <tr>
-            <td>FLEX</td>
-            <% @players.each do |player| %>  
-            <% if (player.position == "RB" && (player.positional_ranking != 1 || player.positional_ranking != 2)) || (player.position == "WR" && (player.positional_ranking != 1 || player.positional_ranking != 2)) || (player.position == "TE" && player.positional_ranking != 1) %>   
-                <td><%= link_to player.player, edit_player_path(player) %></td>
+          <td>TE</td>
+            <% @te.each do |player| %>      
+                <td><%=link_to player.player %></td>
           </tr>
-          <% end %>
         <% end %>
 
         <tr>
-            <td>FLEX</td>
-            <% @players.each do |player| %>  
-            <% if player.position == "RB" && player.positional_ranking == 1 %>   
-                <td><%= link_to player.player, edit_player_path(player) %></td>
-          </tr>
+          <% count = 0 %>
+          <% until count = 2 %>
+            <% @flex.each do |player| %>
+                <% count += 1 %>
+                <td>FLEX</td>      
+                <td><%=link_to player.player %></td>
+
+
+            <td><%= link_to count %></td>
+            </tr>
           <% end %>
+        <% end %>
+
+
+
+        <tr>
+          <td>DL</td>
+            <% @dl.each do |player| %>      
+                <td><%=link_to player.player %></td>
+          </tr>
         <% end %>
 
         <tr>
-            <td>D</td>
-            <% @players.each do |player| %>  
-            <% if player.position == "D" && player.positional_ranking == 1 %>   
-                <td><%= link_to player.player, edit_player_path(player) %></td>
+          <td>LB</td>
+            <% @lb.each do |player| %>      
+                <td><%=link_to player.player %></td>
           </tr>
-          <% end %>
         <% end %>
 
         <tr>
-            <td>D</td>
-            <% @players.each do |player| %>  
-            <% if player.position == "D" && player.positional_ranking == 2 %>   
-                <td><%= link_to player.player, edit_player_path(player) %></td>
+          <td>DB</td>
+            <% @db.each do |player| %>      
+                <td><%=link_to player.player %></td>
           </tr>
-          <% end %>
         <% end %>
 
         <tr>
-            <td>D</td>
-            <% @players.each do |player| %>  
-            <% if player.position == "D" && player.positional_ranking == 3 %>   
-                <td><%= link_to player.player, edit_player_path(player) %></td>
+          <td>K</td>
+            <% @k.each do |player| %>      
+                <td><%=link_to player.player %></td>
           </tr>
-          <% end %>
         <% end %>
-
-        <tr>
-            <td>K</td>
-            <% @players.each do |player| %>  
-            <% if player.position == "K" && player.positional_ranking == 1 %>   
-                <td><%= link_to player.player, edit_player_path(player) %></td>
-          </tr>
-          <% end %>
-        <% end %>
-
+    
       </tbody>
     </table>
 </div>

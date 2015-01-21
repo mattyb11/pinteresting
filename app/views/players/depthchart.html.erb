@@ -93,7 +93,7 @@
       <tbody>
         <% @players.each do |player| %>     
           <tr>
-            <% if player.position == "D" %>   
+            <% if player.position == "DL" || player.position == "LB" || player.position == "DB" %>   
               <td><%= link_to player.player, edit_player_path(player) %></td>
             </tr>
           <% end %>
