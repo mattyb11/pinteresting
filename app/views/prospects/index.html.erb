@@ -1,0 +1,41 @@
+<center><h1>Prospects</h1></center>
+
+<center>
+<button type="button" class="btn btn-default"><%= link_to 'Overall Rankings', prospects_path %></button>
+<button type="button" class="btn btn-default"><%= link_to 'Positional Rankings', depthchart_prospects_path %></button>
+</center>
+
+<div class="row">
+ <div class="row col-md-7">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Overall Ranking</th>
+          <th>Positional Ranking</th>
+          <th>Player</th>
+          <th>Position</th>
+          <th>College</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+            <% @prospects.each do |player| %>
+              <td><%= player.overall_ranking %></td>
+              <td><%= player.positional_ranking %></td>              
+              <td><%=link_to player.player, edit_prospect_path(player) %></td>
+              <td><%= player.position %></td>
+              <td><%= player.college %></td>
+              <td><%= player.notes %></td>                             
+          </tr>
+        <% end %>
+    
+      </tbody>
+    </table>
+</div>
+</div>
+
+<center><button type="button" class="btn btn-default"><%= link_to 'Add a New Prospect', new_prospect_path %></button></center>
+<br>
+

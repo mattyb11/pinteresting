@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
+
   resources :players do
     collection do
       get :rankings
+      get :depthchart
+    end
+  end
+
+  resources :prospects do
+    collection do
       get :depthchart
     end
   end

@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Player:</strong>
+  <%= @prospect.player %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @prospect.position %>
+</p>
+
+<p>
+  <strong>Overall ranking:</strong>
+  <%= @prospect.overall_ranking %>
+</p>
+
+<p>
+  <strong>Positional ranking:</strong>
+  <%= @prospect.positional_ranking %>
+</p>
+
+<p>
+  <strong>College:</strong>
+  <%= @prospect.college %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @prospect.notes %>
+</p>
+
+<%= link_to 'Edit', edit_prospect_path(@prospect) %> |
+<%= link_to 'Back', prospects_path %>
+<center><button type="button" class="btn btn-default"><%= link_to 'Add a New Prospect', new_prospect_path %></button></center>
+<br>

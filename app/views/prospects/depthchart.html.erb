@@ -1,0 +1,109 @@
+<center><h1>Prospects</h1></center>
+
+<center>
+<button type="button" class="btn btn-default"><%= link_to 'Overall Rankings', prospects_path %></button>
+<button type="button" class="btn btn-default"><%= link_to 'Positional Rankings', depthchart_prospects_path %></button>
+</center>
+
+<div class="row">
+  <div class="row">
+   <div class="row col-md-1">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Ranking</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <% counter = 1 %>
+              <% while counter <= 10 %>   
+                <td><%= counter %></td>
+                <% counter = counter + 1 %>
+              </tr>
+            <% end %>
+        </tbody>
+      </table>
+    </div>
+
+  <div class="row">
+   <div class="row col-md-2">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>QB</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @prospects.each do |player| %>     
+            <tr>
+              <% if player.position == "QB" %>   
+                <td><%= link_to player.player, edit_prospect_path(player) %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+  <div class="row col-md-2">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>RB</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @prospects.each do |player| %>     
+            <tr>
+              <% if player.position == "RB" %>   
+                <td><%= link_to player.player, edit_prospect_path(player) %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="row col-md-2">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>WR</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @prospects.each do |player| %>     
+            <tr>
+              <% if player.position == "WR" %>   
+                <td><%= link_to player.player, edit_prospect_path(player) %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="row col-md-2">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>TE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @prospects.each do |player| %>     
+            <tr>
+              <% if player.position == "TE" %>   
+                <td><%= link_to player.player, edit_prospect_path(player) %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+</div>
+
+<center><button type="button" class="btn btn-default"><%= link_to 'Add a New Prospect', new_prospect_path %></button></center>
+<br>
+

@@ -2,44 +2,44 @@ class PlayersController < ApplicationController
   before_action :set_player, only: [:show, :edit, :update, :destroy]
 
   def index
-    @qb = Player.all.find_by_sql(
-      "SELECT player
+    @qb = Player.find_by_sql(
+      "SELECT *
       FROM players
       WHERE position = 'QB'
       AND positional_ranking = 1")
 
     @rb1 = Player.find_by_sql(
-      "SELECT player
+      "SELECT *
       FROM players
       WHERE position = 'RB'
       AND positional_ranking = 1")
 
     @rb2 = Player.find_by_sql(
-      "SELECT player
+      "SELECT *
       FROM players
       WHERE position = 'RB'
       AND positional_ranking = 2")
   
     @wr1 = Player.find_by_sql(
-      "SELECT player
+      "SELECT *
       FROM players
       WHERE position = 'WR'
       AND positional_ranking = 1")
 
     @wr2 = Player.find_by_sql(
-      "SELECT player
+      "SELECT *
       FROM players
       WHERE position = 'WR'
       AND positional_ranking = 2")
 
     @te = Player.find_by_sql(
-      "SELECT player
+      "SELECT *
       FROM players
       WHERE position = 'TE'
       AND positional_ranking = 1")
 
     @flex = Player.find_by_sql(
-      "SELECT player
+      "SELECT *
       FROM players
       WHERE (position = 'RB' AND positional_ranking != 1 AND positional_ranking != 2)
       OR (position = 'WR' AND positional_ranking != 1 AND positional_ranking != 2)
@@ -47,30 +47,35 @@ class PlayersController < ApplicationController
       GROUP BY overall_ranking")
 
     @dl = Player.find_by_sql(
-      "SELECT player
+      "SELECT *
       FROM players
       WHERE position = 'DL'
       AND positional_ranking = 1")
 
     @lb = Player.find_by_sql(
-      "SELECT player
+      "SELECT *
       FROM players
       WHERE position = 'LB'
       AND positional_ranking = 1")
 
     @db = Player.find_by_sql(
-      "SELECT player
+      "SELECT *
       FROM players
       WHERE position = 'DB'
       AND positional_ranking = 1")
 
     @k = Player.find_by_sql(
-      "SELECT player
+      "SELECT *
       FROM players
       WHERE position = 'K'
       AND positional_ranking = 1")
-  end
 
+    @bench = Player.find_by_sql(
+      "SELECT *
+      FROM players
+      GROUP BY position")
+      
+  end
 
   def rankings
     @players = Player.all.order("overall_ranking")

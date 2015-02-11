@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  player: MyString
+  position: MyString
+  overall_ranking: 1
+  positional_ranking: 1
+  college: MyString
+  notes: MyString
+
+two:
+  player: MyString
+  position: MyString
+  overall_ranking: 1
+  positional_ranking: 1
+  college: MyString
+  notes: MyString

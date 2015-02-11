@@ -20,65 +20,61 @@
         <tr>
           <td>QB</td>
             <% @qb.each do |player| %>      
-                <td><%=link_to player.player %></td>
+                <td><%=link_to player.player, edit_player_path(player) %></td>
           </tr>
         <% end %>
 
         <tr>
           <td>RB</td>
             <% @rb1.each do |player| %>      
-                <td><%=link_to player.player %></td>
+                <td><%=link_to player.player, edit_player_path(player) %></td>
           </tr>
         <% end %>
 
         <tr>
           <td>RB</td>
             <% @rb2.each do |player| %>      
-                <td><%=link_to player.player %></td>
+                <td><%=link_to player.player, edit_player_path(player) %></td>
           </tr>
         <% end %>
 
         <tr>
           <td>WR</td>
             <% @wr1.each do |player| %>      
-                <td><%=link_to player.player %></td>
+                <td><%=link_to player.player, edit_player_path(player) %></td>
           </tr>
         <% end %>
 
         <tr>
           <td>WR</td>
             <% @wr2.each do |player| %>      
-                <td><%=link_to player.player %></td>
+                <td><%=link_to player.player, edit_player_path(player) %></td>
           </tr>
         <% end %>
 
         <tr>
           <td>TE</td>
             <% @te.each do |player| %>      
-                <td><%=link_to player.player %></td>
+                <td><%=link_to player.player, edit_player_path(player) %></td>
           </tr>
         <% end %>
 
         <tr>
           <% count = 0 %>
-          <% until count = 2 %>
-            <% @flex.each do |player| %>
-                <% count += 1 %>
+              <% for player in @flex %>
+              <% if count < 2 %>
                 <td>FLEX</td>      
-                <td><%=link_to player.player %></td>
-
-
-            <td><%= link_to count %></td>
+                <td><%=link_to player.player, edit_player_path(player) %></td>
+                <% count += 1 %>
+                <% end %>
+                
             </tr>
           <% end %>
-        <% end %>
-
-
 
         <tr>
           <td>DL</td>
             <% @dl.each do |player| %>      
-                <td><%=link_to player.player %></td>
+                <td><%=link_to player.player, edit_player_path(player) %></td>
           </tr>
         <% end %>
 
@@ -102,6 +98,7 @@
                 <td><%=link_to player.player %></td>
           </tr>
         <% end %>
+
     
       </tbody>
     </table>
@@ -110,3 +107,4 @@
 
 <center><button type="button" class="btn btn-default"><%= link_to 'Add a New Player', new_player_path %></button></center>
 <br>
+

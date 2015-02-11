@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150106174821) do
+ActiveRecord::Schema.define(version: 20150209194848) do
 
   create_table "players", force: true do |t|
     t.string   "player"
@@ -22,25 +22,21 @@ ActiveRecord::Schema.define(version: 20150106174821) do
     t.datetime "updated_at"
   end
 
-  create_table "rosters", force: true do |t|
-    t.integer  "ranking"
-    t.string   "name"
+  create_table "prospects", force: true do |t|
+    t.string   "player"
     t.string   "position"
+    t.integer  "overall_ranking"
+    t.integer  "positional_ranking"
+    t.string   "college"
+    t.string   "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
   end
 
-  create_table "teams", force: true do |t|
-    t.integer  "ranking"
-    t.string   "name"
-    t.string   "position"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "performances", force: true do |t|
+    t.string   "player"
+    t.integer  "week"
+    t.float    "points"
   end
 
   create_table "users", force: true do |t|
