@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :performances
+
   resources :players do
     collection do
       get :rankings

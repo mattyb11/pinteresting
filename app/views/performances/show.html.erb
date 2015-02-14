@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Player:</strong>
+  <%= @performance.player %>
+</p>
+
+<p>
+  <strong>Week:</strong>
+  <%= @performance.week %>
+</p>
+
+<p>
+  <strong>Points:</strong>
+  <%= @performance.points %>
+</p>
+
+<%= link_to 'Edit', edit_performance_path(@performance) %> |
+<%= link_to 'Back', performances_path %>

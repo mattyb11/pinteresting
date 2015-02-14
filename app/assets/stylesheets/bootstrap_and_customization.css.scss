@@ -16,3 +16,7 @@ $jumbotron-bg: 						#ecf0f1;
 .navbar-brand {
 	font-weight: bold;
 }
+
+.table>tbody>tr>th, .table>tbody>tr>td {
+    border-top: none;
+}

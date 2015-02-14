@@ -8,5 +8,9 @@ class CreatePlayers < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    create_table :performances do |t|
+    	t.belongs_to :player, index:true
+    end
   end
 end

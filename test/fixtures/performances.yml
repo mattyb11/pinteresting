@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  player: MyString
+  week: MyString
+  points: 1.5
+
+two:
+  player: MyString
+  week: MyString
+  points: 1.5

@@ -11,13 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150209194848) do
+ActiveRecord::Schema.define(version: 20150214175610) do
+
+  create_table "performances", force: true do |t|
+    t.string   "player"
+    t.string   "week"
+    t.float    "points"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "player", force: true do |t|
+    t.integer "performances_id"
+  end
+
+  add_index "player", ["performances_id"], name: "index_player_on_performances_id"
 
   create_table "players", force: true do |t|
     t.string   "player"
     t.string   "position"
     t.integer  "overall_ranking"
     t.integer  "positional_ranking"
+    t.string   "owner"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -33,10 +48,25 @@ ActiveRecord::Schema.define(version: 20150209194848) do
     t.datetime "updated_at"
   end
 
-  create_table "performances", force: true do |t|
-    t.string   "player"
-    t.integer  "week"
-    t.float    "points"
+  create_table "rosters", force: true do |t|
+    t.integer  "ranking"
+    t.string   "name"
+    t.string   "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
+  create_table "teams", force: true do |t|
+    t.integer  "ranking"
+    t.string   "name"
+    t.string   "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

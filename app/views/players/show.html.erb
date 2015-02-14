@@ -18,6 +18,11 @@
   <%= @player.positional_ranking %>
 </p>
 
+<p>
+  <strong>Owner:</strong>
+  <%= @player.owner %>
+</p>
+
 <%= link_to 'Edit', edit_player_path(@player) %> |
 <%= link_to 'Back', players_path %>
 
