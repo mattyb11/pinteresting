@@ -32,9 +32,9 @@ ActiveRecord::Schema.define(version: 20150214175610) do
     t.string   "position"
     t.integer  "overall_ranking"
     t.integer  "positional_ranking"
-    t.string   "owner"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "owner"
   end
 
   create_table "prospects", force: true do |t|
