@@ -6,37 +6,43 @@ class PlayersController < ApplicationController
       "SELECT *
       FROM players
       WHERE position = 'QB'
-      AND positional_ranking = 1")
+      AND positional_ranking = 1
+      AND owner = 'Matt'")
 
     @rb1 = Player.find_by_sql(
       "SELECT *
       FROM players
       WHERE position = 'RB'
-      AND positional_ranking = 1")
+      AND positional_ranking = 1
+      AND owner = 'Matt'")
 
     @rb2 = Player.find_by_sql(
       "SELECT *
       FROM players
       WHERE position = 'RB'
-      AND positional_ranking = 2")
+      AND positional_ranking = 2
+      AND owner = 'Matt'")
   
     @wr1 = Player.find_by_sql(
       "SELECT *
       FROM players
       WHERE position = 'WR'
-      AND positional_ranking = 1")
+      AND positional_ranking = 1
+      AND owner = 'Matt'")
 
     @wr2 = Player.find_by_sql(
       "SELECT *
       FROM players
       WHERE position = 'WR'
-      AND positional_ranking = 2")
+      AND positional_ranking = 2
+      AND owner = 'Matt'")
 
     @te = Player.find_by_sql(
       "SELECT *
       FROM players
       WHERE position = 'TE'
-      AND positional_ranking = 1")
+      AND positional_ranking = 1
+      AND owner = 'Matt'")
 
     @flex = Player.find_by_sql(
       "SELECT *
@@ -44,31 +50,36 @@ class PlayersController < ApplicationController
       WHERE (position = 'RB' AND positional_ranking != 1 AND positional_ranking != 2)
       OR (position = 'WR' AND positional_ranking != 1 AND positional_ranking != 2)
       OR (position = 'TE' AND positional_ranking != 1)
-      GROUP BY overall_ranking")
+      GROUP BY overall_ranking
+      AND owner = 'Matt'")
 
     @dl = Player.find_by_sql(
       "SELECT *
       FROM players
       WHERE position = 'DL'
-      AND positional_ranking = 1")
+      AND positional_ranking = 1
+      AND owner = 'Matt'")
 
     @lb = Player.find_by_sql(
       "SELECT *
       FROM players
       WHERE position = 'LB'
-      AND positional_ranking = 1")
+      AND positional_ranking = 1
+      AND owner = 'Matt'")
 
     @db = Player.find_by_sql(
       "SELECT *
       FROM players
       WHERE position = 'DB'
-      AND positional_ranking = 1")
+      AND positional_ranking = 1
+      AND owner = 'Matt'")
 
     @k = Player.find_by_sql(
       "SELECT *
       FROM players
       WHERE position = 'K'
-      AND positional_ranking = 1")
+      AND positional_ranking = 1
+      AND owner = 'Matt'")
 
     @bench = Player.find_by_sql(
       "SELECT *
@@ -78,11 +89,19 @@ class PlayersController < ApplicationController
   end
 
   def rankings
-    @players = Player.all.order("overall_ranking")
+    @players = Player.find_by_sql(
+      "SELECT *
+      FROM players
+      WHERE owner = 'Matt'
+      GROUP BY overall_ranking")
   end
 
   def depthchart
-    @players = Player.all.order("overall_ranking")
+    @players = Player.find_by_sql(
+      "SELECT *
+      FROM players
+      WHERE owner = 'Matt'
+      GROUP BY overall_ranking")
   end
 
   def show
@@ -96,17 +115,12 @@ class PlayersController < ApplicationController
   end
 
   def create
-    @player = Player.new(player_params)
-
-    respond_to do |format|
+      @player = Player.new(player_params)
       if @player.save
-        format.html { redirect_to @players, notice: 'Player was successfully created.' }
-        format.json { render :show, status: :created, location: @player }
+        redirect_to players_path, notice: 'Player was successfully created.'
       else
-        format.html { render :new }
-        format.json { render json: @player.errors, status: :unprocessable_entity }
+        render action: 'new'
       end
-    end
   end
 
   def update
@@ -122,11 +136,8 @@ class PlayersController < ApplicationController
   end
 
   def destroy
-    @player.delete
-    respond_to do |format|
-      format.html { redirect_to @players, notice: 'Player was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    @player.destroy
+    redirect_to players_url, notice: 'Player was successfully deleted'
   end
 
   private
@@ -135,6 +146,6 @@ class PlayersController < ApplicationController
     end
 
     def player_params
-      params.require(:player).permit(:player, :position, :overall_ranking, :positional_ranking)
+      params.require(:player).permit(:player, :position, :overall_ranking, :positional_ranking, :owner) if params[:player]
     end
   end

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     collection do
       get :rankings
       get :depthchart
+      get :trademachine
     end
   end
 

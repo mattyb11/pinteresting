@@ -48,7 +48,7 @@ class ProspectsController < ApplicationController
   def destroy
     @prospect.destroy
     respond_to do |format|
-      format.html { redirect_to prospects_url, notice: 'Prospect was successfully destroyed.' }
+      format.html { redirect_to prospects_url, notice: 'Prospect was successfully deleted.' }
       format.json { head :no_content }
     end
   end

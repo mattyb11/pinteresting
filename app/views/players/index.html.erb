@@ -81,21 +81,21 @@
         <tr>
           <td>LB</td>
             <% @lb.each do |player| %>      
-                <td><%=link_to player.player %></td>
+                <td><%=link_to player.player, edit_player_path(player) %></td>
           </tr>
         <% end %>
 
         <tr>
           <td>DB</td>
             <% @db.each do |player| %>      
-                <td><%=link_to player.player %></td>
+                <td><%=link_to player.player, edit_player_path(player) %></td>
           </tr>
         <% end %>
 
         <tr>
           <td>K</td>
             <% @k.each do |player| %>      
-                <td><%=link_to player.player %></td>
+                <td><%=link_to player.player, edit_player_path(player) %></td>
           </tr>
         <% end %>
 
