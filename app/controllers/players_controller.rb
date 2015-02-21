@@ -85,7 +85,7 @@ class PlayersController < ApplicationController
 
   def rankings
     @players = Player.find_by_sql(
-      "SELECT players.*
+      "SELECT player, position, overall_ranking, positional_ranking, owner
       FROM players
       WHERE owner = 'Matt'
       GROUP BY overall_ranking")
@@ -93,7 +93,7 @@ class PlayersController < ApplicationController
 
   def depthchart
     @players = Player.find_by_sql(
-      "SELECT players.*
+      "SELECT player, position, overall_ranking, positional_ranking, owner
       FROM players
       WHERE owner = 'Matt'
       GROUP BY overall_ranking")
