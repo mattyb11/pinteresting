@@ -88,7 +88,7 @@ class PlayersController < ApplicationController
       "SELECT *
       FROM players
       WHERE owner = 'Matt'
-      GROUP BY overall_ranking")
+      GROUP BY overall_ranking, players.id")
   end
 
   def depthchart
@@ -96,7 +96,7 @@ class PlayersController < ApplicationController
       "SELECT *
       FROM players
       WHERE owner = 'Matt'
-      GROUP BY overall_ranking")
+      GROUP BY overall_ranking, players.id")
   end
 
   def show
