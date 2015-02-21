@@ -50,8 +50,8 @@ class PlayersController < ApplicationController
       WHERE (position = 'RB' AND positional_ranking != 1 AND positional_ranking != 2)
       OR (position = 'WR' AND positional_ranking != 1 AND positional_ranking != 2)
       OR (position = 'TE' AND positional_ranking != 1)
-      GROUP BY overall_ranking
-      AND owner = 'Matt'")
+      AND owner = 'Matt'
+      GROUP BY overall_ranking")
 
     @dl = Player.find_by_sql(
       "SELECT *
@@ -80,11 +80,6 @@ class PlayersController < ApplicationController
       WHERE position = 'K'
       AND positional_ranking = 1
       AND owner = 'Matt'")
-
-    @bench = Player.find_by_sql(
-      "SELECT *
-      FROM players
-      GROUP BY position")
       
   end
 
