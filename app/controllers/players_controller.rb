@@ -137,7 +137,10 @@ class PlayersController < ApplicationController
 
   def destroy
     @player.destroy
-    redirect_to players_url, notice: 'Player was successfully deleted'
+    respond_to do |format|
+      format.html { redirect_to players_url, notice: 'Player was successfully deleted.' }
+      format.json { head :no_content }
+    end
   end
 
   private

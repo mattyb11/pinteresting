@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
 
-  resources :performances
+  resources :drafts do
+    collection do
+      get :order
+      get :picks
+      get :needs
+    end
+  end
+
+  resources :performances do
+    resources :players
+  end
 
   resources :players do
     collection do
@@ -8,6 +18,7 @@ Rails.application.routes.draw do
       get :depthchart
       get :trademachine
     end
+    resources :performances
   end
 
   resources :prospects do

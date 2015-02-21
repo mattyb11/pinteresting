@@ -4,4 +4,4 @@
 
 <%= link_to 'Show', @player %> |
 <%= link_to 'Back', players_path %> |
-<%= link_to 'Delete', players_path, method: :destroy, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Delete', player_path(@player), method: :delete, data: { confirm: 'Are you sure?' } %>
