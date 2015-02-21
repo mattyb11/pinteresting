@@ -88,7 +88,7 @@ class PlayersController < ApplicationController
       "SELECT *
       FROM players
       WHERE owner = 'Matt'
-      GROUP BY overall_ranking, players.id")
+      GROUP BY overall_ranking")
   end
 
   def depthchart
@@ -96,7 +96,7 @@ class PlayersController < ApplicationController
       "SELECT *
       FROM players
       WHERE owner = 'Matt'
-      GROUP BY overall_ranking, players.id")
+      GROUP BY overall_ranking")
   end
 
   def show
@@ -112,7 +112,7 @@ class PlayersController < ApplicationController
   def create
       @player = Player.new(player_params)
       if @player.save
-        redirect_to players_path, notice: 'Player was successfully created.'
+        redirect_to new_player_path, notice: 'Player was successfully created.'
       else
         render action: 'new'
       end
