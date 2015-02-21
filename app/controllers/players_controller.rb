@@ -51,7 +51,7 @@ class PlayersController < ApplicationController
       OR (position = 'WR' AND positional_ranking != 1 AND positional_ranking != 2)
       OR (position = 'TE' AND positional_ranking != 1)
       AND owner = 'Matt'
-      GROUP BY overall_ranking")
+      GROUP BY overall_ranking, players.id")
 
     @dl = Player.find_by_sql(
       "SELECT *
