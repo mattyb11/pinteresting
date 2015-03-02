@@ -1,0 +1,62 @@
+<center><h1>Alex's Team</h1></center>
+
+<center>
+<button type="button" class="btn btn-default"><%= link_to 'Roster', players_path %></button>
+<button type="button" class="btn btn-default"><%= link_to 'Dynasty Rankings', rankings_players_path %></button>
+<button type="button" class="btn btn-default"><%= link_to 'Depth Chart', depthchart_players_path %></button>
+<button type="button" class="btn btn-default"><%= link_to 'Trade Machine', trademachine_players_path %></button>
+</center>
+
+<div class="row">
+	<div class="row col-md-4">
+	    <table class="table">
+	      <thead>
+	      	<tr>
+	      		<th class="center"><%= "Trade Partner:" %></th>
+	      	</tr>
+	      </thead>
+	      <tbody>
+	        <% @owners.each do |owner| %>
+	          <tr>
+	            <td><button type="button" class="btn btn-default btn-block"><%= link_to owner.owner, "#{owner.owner}".downcase %></button></td>
+	          </tr>
+	        <% end %>
+	      </tbody>
+	    </table>
+	</div>
+
+<div class="row">
+	<div class="row col-md-4">
+	    <table class="table">
+	      <thead>
+	      	<tr>
+	      		<th class="center"><%= "Acquire:" %></th>
+	      	</tr>
+	      </thead>
+	      <tbody>
+	        <% @otherplayers.each do |player| %>
+	          <tr>
+	            <td><button type="button" class="btn btn-default btn-block"><%= link_to player.player, players_path %></button></td>
+	          </tr>
+	        <% end %>
+	      </tbody>
+	    </table>
+	</div>
+
+<div class="row">
+	<div class="row col-md-4">
+	    <table class="table">
+	      <thead>
+	      	<tr>
+	      		<th class="center"><%= "Trade Away:" %></th>
+	      	</tr>
+	      </thead>
+	      <tbody>
+	        <% @myplayers.each do |player| %>
+	          <tr>
+	            <td><button type="button" class="btn btn-default btn-block"><%= link_to player.player, players_path %></button></td>
+	          </tr>
+	        <% end %>
+	      </tbody>
+	    </table>
+	</div>

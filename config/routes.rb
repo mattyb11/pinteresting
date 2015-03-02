@@ -17,6 +17,19 @@ Rails.application.routes.draw do
       get :rankings
       get :depthchart
       get :trademachine
+      get :aaron
+      get :alex
+      get :aryeh
+      get :davidg
+      get :davidh
+      get :davids
+      get :ilan
+      get :isaac
+      get :jeremy
+      get :noah
+      get :oliver
+      get :solly
+      get :zack
     end
     resources :performances
   end

@@ -97,6 +97,74 @@ class PlayersController < ApplicationController
       WHERE owner = 'Matt'")
   end
 
+  def trademachine
+    @owners = Player.find_by_sql(
+      "SELECT distinct owner
+      FROM players
+      WHERE owner != 'Matt'")
+
+    @otherplayers = Player.find_by_sql(
+      "SELECT *
+      FROM players
+      WHERE owner != 'Matt'")
+
+    @myplayers = Player.find_by_sql(
+      "SELECT *
+      FROM players
+      WHERE owner = 'Matt'")
+  end
+
+  def aaron
+  end
+
+  def alex
+    @owners = Player.find_by_sql(
+      "SELECT distinct owner
+      FROM players
+      WHERE owner != 'Matt'")
+
+    @otherplayers = Player.find_by_sql(
+      "SELECT *
+      FROM players
+      WHERE owner = 'Alex'")
+
+    @myplayers = Player.find_by_sql(
+      "SELECT *
+      FROM players
+      WHERE owner = 'Matt'")
+  end
+
+  def aryeh
+  end
+
+  def davidg
+  end
+
+  def davidh
+  end
+
+  def davids
+  end
+
+  def ilan
+  end
+
+  def isaac
+  end
+
+  def noah
+  end
+
+  def oliver
+  end
+
+  def solly
+  end
+
+  def Zack
+  end
+    
+  end
   def show
   end
 
@@ -144,4 +212,3 @@ class PlayersController < ApplicationController
     def player_params
       params.require(:player).permit(:player, :position, :overall_ranking, :positional_ranking, :owner) if params[:player]
     end
-  end
